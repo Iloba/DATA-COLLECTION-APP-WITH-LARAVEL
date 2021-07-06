@@ -13,6 +13,6 @@ class UserController extends Controller
 
     //Login User
     public function login(Request $request){
-
+        return $request->input();
     }
 }
