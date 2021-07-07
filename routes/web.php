@@ -25,7 +25,7 @@ Route::view('/register', 'pages.register')->name('register_page');
 Route::view('/login', 'pages.login')->name('login_page');
 
 //Register User
-Route::post('/register', [UserController::class, 'register'])->name('register');
+Route::post('register', [UserController::class, 'register'])->name('register');
 
 //Login Users
 Route::post('/login', [UserController::class, 'login'])->name('login');

@@ -10015,3 +10015,6 @@ h3 {
 body{
   background-color: #f1f1f1;
 }
+ul li{
+  list-style-type: none;
+}

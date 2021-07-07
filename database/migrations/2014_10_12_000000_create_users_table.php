@@ -21,6 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique();
             $table->boolean('email_verified')->nullable();
             $table->string('password');
+            //More Fields to be updated in dashboard Panel
+            $table->string('passport')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
+            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
