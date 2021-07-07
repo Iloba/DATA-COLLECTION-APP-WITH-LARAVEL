@@ -7,6 +7,7 @@ use Webpatser\Uuid\Uuid;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -65,5 +66,11 @@ class UserController extends Controller
     //Login User
     public function login(Request $request){
         return $request->input();
+    }
+
+    //logout User
+    public function logout(){
+        Session::forget('user');
+        return redirect()->route('login')->with('success', 'Logout Successful');
     }
 }

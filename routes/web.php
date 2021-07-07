@@ -30,5 +30,8 @@ Route::post('register', [UserController::class, 'register'])->name('register');
 //Dashboard
 Route::view('/dashboard', 'auth.dashboard')->name('dashboard');
 
+//Logout User
+Route::post('/logout', [UserController::class, 'logout'])->name('logout_user');
+
 //Login Users
 Route::post('/login', [UserController::class, 'login'])->name('login');

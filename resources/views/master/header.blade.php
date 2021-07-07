@@ -21,19 +21,33 @@
             </button>
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-               
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+               @if (session()->has('user'))
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{session('user')->username}}
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
+                        event.preventDefault();
+
+                        document.getElementById('logout-form').submit();
+                        
+                        ">Logout
+                          <form action="{{route('logout_user')}}" method="POST" class="d-none" id="logout-form" >
+                            @csrf
+                          </form>
+                        </a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
                   </li>
-                  <a class="nav-item nav-link" href="{{route('register_page')}}">Signup</a>
-                  <a class="nav-item nav-link" href="{{route('login_page')}}">Login</a>
+
+                @else
+                <a class="nav-item nav-link" href="{{route('register_page')}}">Signup</a>
+                <a class="nav-item nav-link" href="{{route('login_page')}}">Login</a>
+               @endif
+               
+                 
             </div>
             </div>
         </div>
