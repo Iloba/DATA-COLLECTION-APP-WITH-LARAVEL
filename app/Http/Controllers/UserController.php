@@ -28,7 +28,7 @@ class UserController extends Controller
         //get the name and select the first five strings
         $name = Str::Substr(strtoupper($request->username), 0, 5);
 
-        //Generate unique 5 digit string
+        //Generate unique 5 digit integer
         $code = mt_rand(10000, 19999);
 
         //generate registration number
@@ -45,16 +45,13 @@ class UserController extends Controller
 
         $user->save();
 
-
-
-        //log user in
-        $request->session()->put('user', $user);
-
-       return redirect()->route('dashboard')->with('success', 'Registration Successful Welcome');
-;
-
-
         //Send Verification mail after registration
+
+        //redirect user to email verification page 
+        return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
+
+
+ 
 
 
 

@@ -33,5 +33,8 @@ Route::view('/dashboard', 'auth.dashboard')->name('dashboard');
 //Logout User
 Route::post('/logout', [UserController::class, 'logout'])->name('logout_user');
 
+//verify mail route
+Route::view('/verifymail', 'pages.verify_email')->name('email-verification');
+
 //Login Users
 Route::post('/login', [UserController::class, 'login'])->name('login');
