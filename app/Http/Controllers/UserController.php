@@ -58,19 +58,25 @@ class UserController extends Controller
             return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
 
         } catch (Exception $error){
-            return back()->with('error', 'Registration complete Something went wrong Could not send verification mail');
+            return back()->with('error', 'Registration complete but Something went wrong; Could not send verification mail');
         }
-       
-
-
-        
        
 
     }
 
      //Update verified email field
     public function verifyEmail(User $user){
-        return 'hello';
+        //find user on the db table
+        $user = User::find($user->id);
+
+        //check if user reg number matches that in database
+        if(User::where('reg_number', $user->reg_number)->exists()){
+            //set verified to true
+            $user->email_verified = true;
+            $user->save();
+
+            return redirect()->route('login_page')->with('success', 'Email successfully verified, Please login');
+        }
     }
 
     //Login User with either reg number or email
