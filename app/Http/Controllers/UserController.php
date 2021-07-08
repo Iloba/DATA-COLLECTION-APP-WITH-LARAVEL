@@ -67,7 +67,7 @@ class UserController extends Controller
     }
 
      //Update verified email field
-    public function verifyEmail(){
+    public function verifyEmail(User $user){
         return 'hello';
     }
 
