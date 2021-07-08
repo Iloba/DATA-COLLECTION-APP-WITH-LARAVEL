@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Webpatser\Uuid\Uuid;
+use App\Mail\VerifyEmail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -36,16 +38,20 @@ class UserController extends Controller
 
         //Create User
         $user = new User;
+        
         $user->username = $request->username;
         $user->reg_number = $reg_no;
         $user->email_verified = False; //Email has not been verified
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-
+           
         $user->save();
 
+        
+
         //Send Verification mail after registration
+        Mail::to($request->email)->send(new VerifyEmail($user));
 
         //redirect user to email verification page 
         return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
@@ -56,8 +62,13 @@ class UserController extends Controller
 
 
 
-        //Update verified email field
+       
 
+    }
+
+     //Update verified email field
+    public function verifyEmail(){
+        return 'hello';
     }
 
     //Login User

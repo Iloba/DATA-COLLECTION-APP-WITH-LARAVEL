@@ -36,5 +36,8 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout_user');
 //verify mail route
 Route::view('/verifymail', 'pages.verify_email')->name('email-verification');
 
+//Verify EMail
+Route::view('/verifymail/{id}', [UserController::class, 'verifyEmail'])->name('verify_email');
+
 //Login Users
 Route::post('/login', [UserController::class, 'login'])->name('login');
