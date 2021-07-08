@@ -53,15 +53,9 @@ class UserController extends Controller
         //Send Verification mail after registration
         Mail::to($request->email)->send(new VerifyEmail($user));
 
+
         //redirect user to email verification page 
         return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
-
-
- 
-
-
-
-
        
 
     }
@@ -71,7 +65,7 @@ class UserController extends Controller
         return 'hello';
     }
 
-    //Login User
+    //Login User with either reg number or email
     public function login(Request $request){
         return $request->input();
     }
