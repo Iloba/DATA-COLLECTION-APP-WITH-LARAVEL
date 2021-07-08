@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use Webpatser\Uuid\Uuid;
 use App\Mail\VerifyEmail;
@@ -49,13 +50,20 @@ class UserController extends Controller
         $user->save();
 
         
+        try {
+             //Send Verification mail after registration
+            Mail::to($request->email)->send(new VerifyEmail($user));
 
-        //Send Verification mail after registration
-        Mail::to($request->email)->send(new VerifyEmail($user));
+            //redirect user to email verification page 
+            return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
+
+        } catch (Exception $error){
+            return back()->with('error', 'Registration complete Something went wrong Could not send verification mail');
+        }
+       
 
 
-        //redirect user to email verification page 
-        return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
+        
        
 
     }
