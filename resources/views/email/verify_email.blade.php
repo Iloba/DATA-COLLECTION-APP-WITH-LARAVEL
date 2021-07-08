@@ -4,7 +4,7 @@ Hi, {{$user->username}}, Please Verify your email
 Click the link below to verify your email.
 
 
-@component('mail::button', ['url' => route('verify_email', Hash::make($user)), 'color', 'success'])
+@component('mail::button', ['url' => route('verify_email', $user), 'color', 'success'])
 Verify Email 
 @endcomponent
 
