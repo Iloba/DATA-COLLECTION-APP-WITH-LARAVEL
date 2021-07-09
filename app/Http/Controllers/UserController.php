@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+
+   
     //Register User
     public function register(Request $request){
 
@@ -71,7 +73,7 @@ class UserController extends Controller
 
         //check if user reg number matches that in database
         if(User::where('reg_number', $user->reg_number)->exists()){
-            //set verified to true
+            //set value of verified field to true
             $user->email_verified = true;
             $user->save();
 
@@ -79,14 +81,9 @@ class UserController extends Controller
         }
     }
 
-    //Login User with either reg number or email
-    public function login(Request $request){
-        return $request->input();
-    }
+    
 
-    //logout User
-    public function logout(){
-        Session::forget('user');
-        return redirect()->route('login')->with('success', 'Logout Successful');
-    }
+    
+
+    //Forgot Password
 }

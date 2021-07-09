@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +30,10 @@ Route::view('/login', 'pages.login')->name('login_page');
 Route::post('register', [UserController::class, 'register'])->name('register');
 
 //Dashboard
-Route::view('/dashboard', 'auth.dashboard')->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 //Logout User
-Route::post('/logout', [UserController::class, 'logout'])->name('logout_user');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout_user');
 
 //verify mail route
 Route::view('/verifymail', 'pages.verify_email')->name('email-verification');
@@ -40,4 +42,4 @@ Route::view('/verifymail', 'pages.verify_email')->name('email-verification');
 Route::any('/verifymail/{user:id}', [UserController::class, 'verifyEmail'])->name('verify_email');
 
 //Login Users
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');

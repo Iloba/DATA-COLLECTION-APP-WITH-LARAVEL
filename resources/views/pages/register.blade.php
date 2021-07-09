@@ -4,9 +4,9 @@
         <div class="row">
           
             <div class="col-md-5 mx-auto">
-                
+                @include('master.errors')
                 <div class="card p-3 shadow-sm">
-                    @include('master.errors')
+                    
                     <h2 class="text-center mb-5">Register</h2>
                     <form action="{{route('register')}}" method="POST">
                         @csrf
