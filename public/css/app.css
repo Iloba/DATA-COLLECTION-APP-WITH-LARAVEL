@@ -10018,3 +10018,17 @@ body{
 ul li{
   list-style-type: none;
 }
+.first-section{
+  background-image: url('../img/hero.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  filter: brightness(1);
+  color: #fff;
+}
+.welcome{
+  font-size: 70px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.third-section{
+  background-color: #fffbf6;
+}

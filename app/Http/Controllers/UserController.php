@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
    
     //Register User
     public function register(Request $request){
