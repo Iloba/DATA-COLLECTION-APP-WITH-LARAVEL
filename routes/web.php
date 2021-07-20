@@ -25,13 +25,13 @@ Route::get('/', function () {
 Route::view('/register', 'pages.register')->name('register_page');
 
 //Login Route
-Route::view('/login', 'pages.login')->name('login_page');
+Route::view('/login', 'pages.login')->name('login_page')->middleware('isLogged');
 
 //Register User
 Route::post('register', [UserController::class, 'register'])->name('register');
 
 //Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('access');
 
 //Logout User
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout_user');
