@@ -17,7 +17,7 @@ class LoggedIn
     public function handle(Request $request, Closure $next)
     {
         //specify middleware
-        if($request->path('login') && $request->session()->has('user')){
+        if($request->path('register') && $request->session()->has('user')){
             return redirect()->route('dashboard')->with('success', 'You are already logged in');
         }
 

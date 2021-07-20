@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 //Register Route
-Route::view('/register', 'pages.register')->name('register_page');
+Route::view('/register', 'pages.register')->name('register_page')->middleware('isLogged');
 
 //Login Route
 Route::view('/login', 'pages.login')->name('login_page')->middleware('isLogged');
