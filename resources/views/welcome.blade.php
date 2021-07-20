@@ -3,6 +3,10 @@
         <section class="p-5 first-section">
             <div class="container p-5">
                 <h1 class="text-center welcome">Welcome to E-registration</h1>
+                <div class="d-flex">
+                    <a href="{{route('register_page')}}" style="max-width: 180px;" class="btn btn-danger btn-lg mx-auto d-block">Register</a>
+                    <a href="{{route('login_page')}}" style="max-width: 180px;" class="btn btn-success btn-lg mx-auto d-block">Sign in</a>
+                </div>
             </div>
         </section>
         <section class="mt-5 mb-5">
@@ -22,8 +26,8 @@
             </div>
         </section>
         <section class="p-5 third-section">
-            <div class="container">
-                <h2>The four (4) main programs under the Empowerment Investment Program</h2>
+            <div class="container p-4">
+                <h2 class="text-center">The four (4) main programs under the Empowerment Investment Program</h2>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row mt-5 mb-5">
@@ -71,7 +75,9 @@
             </div>
         </section>
         <section class="p-5">
+            <h1 class="text-center p-3">Steps to follow</h1>
             <div class="container p-5">
+                
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <div class="card shadow">

@@ -54,13 +54,13 @@ class UserController extends Controller
            
         $user->save();
 
-        
+        //Try and catch syntaxxx to send error (Never forget)
         try {
              //Send Verification mail after registration
             Mail::to($request->email)->send(new VerifyEmail($user));
 
             //redirect user to email verification page 
-            return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email');
+            return redirect()->route('email-verification')->with('success', 'Registration Successful Please check your email, we have sent you a link to verify your email also check spam folder');
 
         } catch (Exception $error){
             return back()->with('error', 'Registration complete but Something went wrong; Could not send verification mail');
