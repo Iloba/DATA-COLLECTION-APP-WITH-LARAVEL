@@ -7,12 +7,17 @@
     <div class="dashboard">
         <div class="container-fluid">
             <div class="row" id="main-dashboard">
-                <div style="height: 100vh;" class="col-md-3 bg-success" id="sidebar">
+                <div style="height: auto;" class="col-md-3 bg-success" id="sidebar">
                     {{-- <h3 class="mt-3 text-center text-white">Dashboard</h3> --}}
                     
                    <div class="passport section">
-                        <img style="max-width: 100px; border: 3px solid white;" class="img-fluid shadow rounded-circle mt-5 mx-auto d-block" src="{{asset('img/money.webp')}}" alt="">
-                        <h3 class="text-center mt-3  mb-4 bg-light rounded text-success p-2 shadow text-white">Emeka Iloba</h3>
+                        <img style="max-width: 100px; border: 3px solid white;" class="img-fluid shadow rounded-circle mt-5 mx-auto d-block" src="{{asset('img/user.png')}}" alt="">
+                        <h3 class="text-center mt-3  mb-4 bg-light rounded text-success p-2 shadow text-white">
+                            @if (session('user'))
+                                {{session('user')->username}}
+                            @endif
+
+                        </h3>
                         <ul>
                             <li class="text-center mb-4"><h5><a class="text-light" href=""> <i class="icofont icofont-user"></i> Update Bio</a></h5></li>
                             <li class="text-center mb-4"><h5><a class="text-light" href=""> <i class="icofont icofont-graduate"></i> Update Education</a></h5></li>
