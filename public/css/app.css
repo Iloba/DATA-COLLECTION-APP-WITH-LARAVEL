@@ -10043,3 +10043,19 @@ div a:hover{
   color: #040505;
   text-decoration: none;
 }
+
+/* #main-dashboard{
+  position: relative;
+}
+
+#sidebar{
+  position: fixed;
+  width: 400px;
+
+} */
+@media(max-width: 600px){
+  #sidebar{
+     display: none;
+
+  }
+}

@@ -6,8 +6,8 @@
     @endif --}}
     <div class="dashboard">
         <div class="container-fluid">
-            <div class="row">
-                <div style="height: 100vh;" class="col-md-3 bg-success">
+            <div class="row" id="main-dashboard">
+                <div style="height: 100vh;" class="col-md-3 bg-success" id="sidebar">
                     {{-- <h3 class="mt-3 text-center text-white">Dashboard</h3> --}}
                     
                    <div class="passport section">
