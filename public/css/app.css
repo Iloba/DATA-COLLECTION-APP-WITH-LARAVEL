@@ -10035,3 +10035,11 @@ ul li{
 #login{
   background-color: red;
 }
+div a{
+  color: #000;
+}
+
+div a:hover{
+  color: #040505;
+  text-decoration: none;
+}
