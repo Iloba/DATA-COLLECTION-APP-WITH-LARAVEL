@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UpdateBiodata;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UpdateEducation;
 use App\Http\Controllers\EmailVerification;
 use App\Http\Controllers\DashboardController;
 
@@ -44,3 +46,14 @@ Route::any('/verifymail/{user:id}', [EmailVerification::class, 'verifyEmail'])->
 
 //Login Users
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
+    //Edit Biodata
+    Route::get('/updateBiodata/{user:username}', [UpdateBiodata::class, 'getdata'])->name('update_biodata');
+
+    //Update Biodata
+    Route::post('/updateBiodata/{user:id}', [UpdateBiodata::class, 'update'])->name('savebiodata');
+
+    //Edit Education
+    Route::get('/updateEducation/{user:username}', [UpdateEducation::class, 'getdata'])->name('update_education');
+});

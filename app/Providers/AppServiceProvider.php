@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Http\View\Composers\Usercomposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        //use bootstrap for pagination
+        Paginator::usebootstrap();
+
+        //pass UserComposer to class
+        View::composer(
+            'master.sidebar', Usercomposer::class
+        );
     }
 }
