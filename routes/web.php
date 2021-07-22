@@ -56,4 +56,9 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
 
     //Edit Education
     Route::get('/updateEducation/{user:username}', [UpdateEducation::class, 'getdata'])->name('update_education');
+
+    //Update Education
+    Route::post('/updateEducation/{user:id}', [UpdateEducation::class, 'update'])->name('save_education');
+
+    
 });

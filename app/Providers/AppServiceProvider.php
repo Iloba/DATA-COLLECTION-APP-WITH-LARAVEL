@@ -6,6 +6,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Http\View\Composers\Usercomposer;
+use App\Http\View\Composers\EducationComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
         //pass UserComposer to class
         View::composer(
             'master.sidebar', Usercomposer::class
+        );
+
+        View::composer(
+            'user.update_education', EducationComposer::class
         );
     }
 }

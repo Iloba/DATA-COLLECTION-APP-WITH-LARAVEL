@@ -34,7 +34,7 @@ class UserController extends Controller
 
         //Generate Unique Registration number
         //get the name and select the first five strings
-        $name = Str::Substr(strtoupper($request->username), 0, 5);
+        $name = Str::Substr(strtoupper(trim($request->username)), 0, 5);
 
         //Generate unique 5 digit integer
         $code = mt_rand(10000, 19999);
@@ -45,7 +45,7 @@ class UserController extends Controller
         //Create User
         $user = new User;
         
-        $user->username = $request->username;
+        $user->username = str_replace(' ', '', $request->username);
         $user->reg_number = $reg_no;
         $user->email_verified = False; //Email has not been verified
         $user->email = $request->email;
