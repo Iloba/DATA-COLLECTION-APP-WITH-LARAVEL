@@ -6,24 +6,26 @@
                 <div class="col-md-9 mt-4 mb-5">
                     <div class="card p-4 shadow">
                         @include('master.errors')
-                        <h3 class="mb-4">Update Education</h3>
+                        <h3 class="mb-4">Update Work Experience</h3>
                         
                         
-                        <form action="{{route('save_education', session('user'))}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('save_experience', session('user'))}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <div class="col-md-4 mb-3">
-                                    <label for=""><b>Educational Level</b></label>
-                                    <input name="level" type="text" class="form-control" placeholder="Education"  id="">
+                                    <label for=""><b>Position Held</b></label>
+                                    <input name="position" type="text" class="form-control" placeholder="Position Held"  id="">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for=""><b>Certificate Obtained</b></label>
-                                    <input name="cert" type="text" class="form-control" placeholder="Certificate Obatined"  id="">
+                                    <label for=""><b>Field</b></label>
+                                    <input name="field" type="text" class="form-control" placeholder="Name of Field"  id="">
                                 </div>
+                                
                                 <div class="col-md-4 mb-3">
-                                    <label for=""><b>Institution</b></label>
-                                    <input name="school" type="text" class="form-control" placeholder="Name of Institution"  id="">
+                                    <label for=""><b>Employer</b></label>
+                                    <input name="employer" type="text" class="form-control" placeholder="Name of Employer"  id="">
                                 </div>
+                                
                             </div>
                            
                             <div class="row mb-3">
@@ -36,8 +38,8 @@
                                     <input name="end_date" type="text" class="form-control" placeholder="End Date"  id="">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for=""><b>Grade Attained</b></label>
-                                    <input name="grade" type="text" class="form-control" placeholder="Grade"  id="">
+                                    <label for=""><b>Experience</b></label>
+                                    <input name="experience" type="text" class="form-control" placeholder="Eg: Good or Bad"  id="">
                                 </div>
                             </div>
                             
@@ -45,8 +47,8 @@
                                 Save and Continue
                             </button>
                         </form>
-                        <h2 class="mb-3 mt-3">Educational Background</h2>
-                        @if ($education->count() > 0)
+                        <h2 class="mb-3 mt-3">Work Experiences</h2>
+                        {{-- @if ($education->count() > 0)
                               
                                 <div class="row mb-4 mt-3">
                                     @foreach ($education as $school)
@@ -77,7 +79,7 @@
                               
                             @else
                             <p>You have not added any Educational history</p>
-                            @endif
+                            @endif --}}
                     </div>
                  
                 </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\UpdateBiodata;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UpdateEducation;
+use App\Http\Controllers\UpdateExperience;
 use App\Http\Controllers\EmailVerification;
 use App\Http\Controllers\DashboardController;
 
@@ -62,4 +63,10 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
 
     //Delete Education
     Route::delete('/updateEducation/{id}/delete', [UpdateEducation::class, 'delete'])->name('delete_education');
+
+    //Edit Experience
+    Route::get('/updateExperience/{user:username}', [UpdateExperience::class, 'getdata'])->name('update_experience');
+
+    //Update Experience
+    Route::post('/updateExperience/{user:id}', [UpdateExperience::class, 'update'])->name('save_experience');
 });
