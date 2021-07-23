@@ -30,7 +30,7 @@ class UpdateExperience extends Controller
 
         //use create method
         $experience = $user->experiences()->create([
-            'user_id' => $user->id,
+           
             'position' => $request->position,
             'field' => $request->field,
             'employer' => $request->employer,

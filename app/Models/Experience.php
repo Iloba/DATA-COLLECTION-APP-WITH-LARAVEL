@@ -15,7 +15,6 @@ class Experience extends Model
     }
 
     protected $fillable = [
-        'user_id',
         'position',
         'field',
         'employer',
