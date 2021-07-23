@@ -13,7 +13,7 @@ class UpdateExperience extends Controller
     }
 
     //Update Experience
-    public function update(User $user){
+    public function update(Request $request, User $user){
         dd($user);
     }
 }
