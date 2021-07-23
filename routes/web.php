@@ -60,5 +60,6 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
     //Update Education
     Route::post('/updateEducation/{user:id}', [UpdateEducation::class, 'update'])->name('save_education');
 
-    
+    //Delete Education
+    Route::delete('/updateEducation/{id}/delete', [UpdateEducation::class, 'delete'])->name('delete_education');
 });

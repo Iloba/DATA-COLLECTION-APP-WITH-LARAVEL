@@ -45,5 +45,13 @@ class UpdateEducation extends Controller
        
     }
 
-   
+    //delete Education
+    public function delete($id){
+        $education = Education::find($id);
+       
+        $education->delete();
+
+        return back()->with('success', 'Eduction Successfully Removed');
+    }
+
 }

@@ -7,31 +7,8 @@
                     <div class="card p-4 shadow">
                         @include('master.errors')
                         <h3 class="mb-4">Update Education</h3>
-                        @if ($education->count() > 0)
-                          
-                            <div class="row">
-                                @foreach ($education as $school)
-                                    <div class="col-md-12 mb-3">
-                                        <div class="card p-2 shadow-sm">
-                                                <b class="text-success">{{$school->education}}</b>
-                                                {{$school->start_date}} to 
-                                                {{$school->end_date}}
-                                                <a style="color:red;" href="#"> Delete</a>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                    <form action="">
-
-                                    </form>
-                                    {{$education->links()}}
-                                @endforeach
-                            </div>
-                          
-                        @else
-                        <p>You have not added any Educational history</p>
-                        @endif
-                        <h2 class="mb-3">Add new entry</h2>
+                        
+                        
                         <form action="{{route('save_education', session('user'))}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
@@ -62,7 +39,41 @@
                                 Save and Continue
                             </button>
                         </form>
+                        <h2 class="mb-3 mt-3">Educational Background</h2>
+                        @if ($education->count() > 0)
+                              
+                                <div class="row mb-4 mt-3">
+                                    @foreach ($education as $school)
+                                        <div class="col-md-12 mb-3">
+                                            <div class="card p-2 shadow-sm">
+                                                    <b class="text-success">{{$school->education}}</b>
+                                                    {{$school->start_date}} to 
+                                                    {{$school->end_date}}
+                                                    <a style="color:red;" onclick="
+                                                    event.preventDefault()
+                                                    if(confirm('Are you sure you want to delete this entry?')){
+                                                        document.getElementById('{{'form-delete-'.$school->id}}').submit();
+                                                    }"; href="{{route('delete_education', $school->id)}}"> Delete</a>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <form class="d-none" action="{{route('delete_education', $school->id)}}" method="POST" id="{{'form-delete-'.$school->id}}">
+                                            @csrf
+                                            @method('delete')
+                                        </form>
+                                      
+                                    @endforeach
+                                   <div class="p-3">
+                                    {{$education->links()}}
+                                   </div>
+                                </div>
+                              
+                            @else
+                            <p>You have not added any Educational history</p>
+                            @endif
                     </div>
+                 
                 </div>
             </div>
         </div>
