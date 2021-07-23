@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Education;
+use App\Models\Experience;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,8 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Relationship
+   
     public function educations(){
         return $this->hasMany(Education::class);
     }
+
+    public function experiences(){
+        return $this->hasMany(Experience::class);
+    }
+    
 }
