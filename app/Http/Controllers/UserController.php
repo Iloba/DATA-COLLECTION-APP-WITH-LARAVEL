@@ -15,10 +15,6 @@ use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('guest');
-    // }
    
     //Register User
     public function register(Request $request){
@@ -28,13 +24,11 @@ class UserController extends Controller
             'username' => 'required | min:6 | unique:users',
             'email' => 'required  | unique:users',
             'phone' => 'required | min:11 | unique:users',
-            'password' => [
-                
+            'password' => [ 
                 'required',
                 'confirmed', 
                 Password::min(8)->letters()->numbers()->mixedCase()
-                
-                ]
+             ]
         ]);
 
 

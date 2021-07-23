@@ -2,7 +2,12 @@
     {{-- <h3 class="mt-3 text-center text-white">Dashboard</h3> --}}
     
    <div class="passport section">
-        <img style="max-width: 100px; border: 3px solid white;" class="img-fluid shadow rounded-circle mt-5 mx-auto d-block" src="{{asset('storage/passport_photographs/'.$user->passport)}}" alt="Passports">
+       @if ($user->passport)
+       <img style="max-width: 100px; border: 3px solid white;" class="img-fluid shadow rounded-circle mt-5 mx-auto d-block" src="{{asset('storage/passport_photographs/'.$user->passport)}}" alt="Passports">
+       @else
+       <img style="max-width: 100px; border: 3px solid white;" class="img-fluid shadow rounded-circle mt-5 mx-auto d-block" src="{{asset('img/user.png')}}" alt="Passports">
+       @endif
+       
         <h3 class="text-center mt-3  mb-4 bg-light rounded text-success p-2 shadow text-white">
             @if (session('user'))
                 {{session('user')->username}}
