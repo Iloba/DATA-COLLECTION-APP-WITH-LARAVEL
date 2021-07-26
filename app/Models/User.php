@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Essay;
 use App\Models\Document;
 use App\Models\Education;
 use App\Models\Experience;
@@ -57,6 +58,10 @@ class User extends Authenticatable
     //a user can have many documents
     public function documents(){
         return $this->hasMany(Document::class);
+    }
+
+    public function essays(){
+        return $this->hasMany(Essay::class);
     }
     
 }

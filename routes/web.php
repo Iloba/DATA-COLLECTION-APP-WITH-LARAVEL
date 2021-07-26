@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UpdateEssay;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UpdateBiodata;
 use App\Http\Controllers\UserController;
@@ -82,4 +83,10 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
 
     //Delete Document
     Route::delete('/updateDocuments/{id}/delete', [UpdateDocuments::class, 'delete'])->name('delete_document');
+
+    //Edit Essay
+    Route::get('/updateEssay/{user:id}', [UpdateEssay::class, 'getdata'])->name('update_essay');
+
+    //Edit Essay
+    Route::post('/updateEssay/{user:id}', [UpdateEssay::class, 'update'])->name('save_essay');
 });

@@ -42,9 +42,7 @@
                                 <table class="table table-bordered">
                                     <thead>
                                             <tr>
-                                                <th>
-                                                    S/NO
-                                                </th>
+                                               
                                                 <th>
                                                     Document
                                                 </th>
@@ -59,9 +57,7 @@
                                     <tbody>
                                            @foreach ($documents as $document)
                                                 <tr>
-                                                    <td>
-                                                        {{$document->id}}
-                                                    </td>
+                                                   
                                                     <td>
                                                         {{$document->document}}
                                                     </td>

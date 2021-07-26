@@ -66,7 +66,7 @@
                                 </a>
                             </div>
                             <div class="col-md-4 mb-3">  
-                                <a href="">
+                                <a href="{{route('update_essay', session('user'))}}">
                                     <div class="card shadow p-5">
                                         <h2 class="text-center"><i class=" p-3 shadow  icofont icofont-pencil btn btn-success rounded-circle"></i></h2>
                                       <h3 class="text-center">Write Essay</h3>
