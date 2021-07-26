@@ -36,6 +36,7 @@
                             </button>
                         </form>
                         <h2 class="mb-3 mt-3">My Documents</h2>
+                        @if ($documents->count() > 0)
                         <div class="row">
                             <div class="table-responsive p-3">
                                 <table class="table table-bordered">
@@ -55,9 +56,32 @@
                                                 </th>
                                             </tr>
                                     </thead>
+                                    <tbody>
+                                           @foreach ($documents as $document)
+                                                <tr>
+                                                    <td>
+                                                        {{$document->id}}
+                                                    </td>
+                                                    <td>
+                                                        {{$document->id}}
+                                                    </td>
+                                                    <td>
+                                                        {{$document->document_name}}
+                                                    </td>
+                                                    <td>
+                                                        <a href=""><i class=" btn btn-danger icofont icofont-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                           @endforeach 
+                                    </tbody>
                                 </table>
+                                {{$documents->links()}}
                             </div>
                         </div>
+                        @else
+                        <p>You have not uploaded any documents yet</p>   
+                        @endif
+                     
                      
                     </div>
                  
