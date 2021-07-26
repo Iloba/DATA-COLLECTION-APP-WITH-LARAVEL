@@ -79,4 +79,7 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
 
     //Update Documents
     Route::post('/updateDocuments/{user:id}', [UpdateDocuments::class, 'update'])->name('save_document');
+
+    //Delete Document
+    Route::delete('/updateDocuments/{id}/delete', [UpdateDocuments::class, 'delete'])->name('delete_document');
 });

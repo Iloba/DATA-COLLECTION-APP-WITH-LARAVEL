@@ -1,4 +1,4 @@
-<div style="height: 100vh;" class="col-md-3 bg-success" id="sidebar">
+<div style="height: auto;" class="col-md-3 bg-success" id="sidebar">
     {{-- <h3 class="mt-3 text-center text-white">Dashboard</h3> --}}
     
    <div class="passport section">
@@ -21,6 +21,7 @@
             <li class="text-center mb-4"><h5><a class="text-light" href="{{route('update_experience', session('user'))}}"> <i class="icofont icofont-ui-office"></i> Update Experience</a></h5></li>
             <li class="text-center mb-4"><h5><a class="text-light" href="{{route('update_document', session('user'))}}"> <i class="icofont icofont-ui-file"></i> Upoad Documents</a></h5></li>
             <li class="text-center mb-4"><h5><a class="text-light" href=""> <i class="icofont icofont-pencil"></i> Update Essay</a></h5></li>
+            <li class="text-center mb-4"><h5><a class="text-light" href=""> <i class="icofont icofont-eye"></i> Preview Application</a></h5></li>
         </ul>
    </div>
 </div>

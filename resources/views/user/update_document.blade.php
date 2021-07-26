@@ -63,14 +63,24 @@
                                                         {{$document->id}}
                                                     </td>
                                                     <td>
-                                                        {{$document->id}}
+                                                        {{$document->document}}
                                                     </td>
                                                     <td>
                                                         {{$document->document_name}}
                                                     </td>
                                                     <td>
-                                                        <a href=""><i class=" btn btn-danger icofont icofont-trash"></i></a>
+                                                        <a onclick="
+                                                            event.preventDefault();
+                                                            if(confirm('Dangerous Operation, Do you want to continue?')){
+                                                                document.getElementById('{{'form-delete-'.$document->id}}').submit();
+                                                            }
+                                                        
+                                                        " href="{{route('delete_document', $document->id)}}"><i class=" btn btn-danger icofont icofont-trash"></i></a>
                                                     </td>
+                                                    <form action="{{route('delete_document', $document->id)}}" method="POST" id="{{'form-delete-'.$document->id}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
                                                 </tr>
                                            @endforeach 
                                     </tbody>

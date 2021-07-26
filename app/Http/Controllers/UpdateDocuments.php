@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,9 +52,23 @@ class UpdateDocuments extends Controller
              //return redirect
             return redirect()->back()->with('success', 'Document Upload Successful');
         }
-       
       
+    }
 
-   
+    //delete Document
+    public function delete($id){
+        //find document
+        $document = Document::find($id);
+
+        //delete from directory
+        Storage::delete('public/user_documents/'.$document->document);
+
+        //delete from database
+        $document->delete();
+        
+        //redirect
+        return redirect()->back()->with('success', 'Document Deleted Successfully');
+        
+
     }
 }
