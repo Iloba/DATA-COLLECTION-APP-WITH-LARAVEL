@@ -48,38 +48,38 @@
                             </button>
                         </form>
                         <h2 class="mb-3 mt-3">Work Experiences</h2>
-                        {{-- @if ($education->count() > 0)
+                        @if ($experiences->count() > 0)
                               
                                 <div class="row mb-4 mt-3">
-                                    @foreach ($education as $school)
+                                    @foreach ($experiences as $experience)
                                         <div class="col-md-12 mb-3">
                                             <div class="card p-2 shadow-sm">
-                                                    <b class="text-success">{{$school->education}}</b>
-                                                    {{$school->start_date}} -
-                                                    {{$school->end_date}}
+                                                    <b class="text-success">{{$experience->position}}</b>
+                                                    {{$experience->start_date}} -
+                                                    {{$experience->end_date}}
                                                     <a style="color:red;" onclick="
                                                     event.preventDefault()
                                                     if(confirm('Are you sure you want to delete this entry?')){
-                                                        document.getElementById('{{'form-delete-'.$school->id}}').submit();
-                                                    }"; href="{{route('delete_education', $school->id)}}"> Delete</a>
+                                                        document.getElementById('{{'form-delete-'.$experience->id}}').submit();
+                                                    }"; href="{{route('delete_experience', $experience->id)}}"> Delete</a>
                                             </div>
                                             
                                         </div>
                                         
-                                        <form class="d-none" action="{{route('delete_education', $school->id)}}" method="POST" id="{{'form-delete-'.$school->id}}">
+                                        <form class="d-none" action="{{route('delete_experience', $experience->id)}}" method="POST" id="{{'form-delete-'.$experience->id}}">
                                             @csrf
                                             @method('delete')
                                         </form>
                                       
                                     @endforeach
                                    <div class="p-3">
-                                    {{$education->links()}}
+                                    {{$experiences->links()}}
                                    </div>
                                 </div>
                               
                             @else
                             <p>You have not added any Educational history</p>
-                            @endif --}}
+                            @endif
                     </div>
                  
                 </div>

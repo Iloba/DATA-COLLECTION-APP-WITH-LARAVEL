@@ -25,8 +25,6 @@ class UpdateExperience extends Controller
             'experience' => 'required',
         ]);
 
-        //find user
-        $user = User::find($user->id);
 
         //use create method
         $experience = $user->experiences()->create([
@@ -43,5 +41,13 @@ class UpdateExperience extends Controller
             return redirect()->back()->with('success', 'Experience Added Successfully');
         }
        
+    }
+
+    public function delete($id){
+        $experience = Experience::find($id);
+        
+        $experience->delete();
+
+        return redirect()->back()->with('success', 'Experience Succesfully Deleted');
     }
 }

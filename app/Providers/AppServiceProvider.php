@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Http\View\Composers\Usercomposer;
 use App\Http\View\Composers\EducationComposer;
+use App\Http\View\Composers\ExperienceComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,6 +39,9 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer(
             'user.update_education', EducationComposer::class
+        );
+        View::composer(
+            'user.update_experience', ExperienceComposer::class
         );
     }
 }

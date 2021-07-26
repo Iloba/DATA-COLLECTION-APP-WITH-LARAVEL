@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UpdateBiodata;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UpdateDocuments;
 use App\Http\Controllers\UpdateEducation;
 use App\Http\Controllers\UpdateExperience;
 use App\Http\Controllers\EmailVerification;
@@ -69,4 +70,13 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
 
     //Update Experience
     Route::post('/updateExperience/{user:id}', [UpdateExperience::class, 'update'])->name('save_experience');
+
+    //Delete Experience
+    Route::delete('/updateExperience/{id}/delete', [UpdateExperience::class, 'delete'])->name('delete_experience');
+
+    //Edit Documents
+    Route::get('/updateDocuments/{user:username}', [UpdateDocuments::class, 'getdata'])->name('update_document');
+
+    //Update Documents
+    Route::post('/updateDocuments/{user:id}', [UpdateDocuments::class, 'update'])->name('save_document');
 });
