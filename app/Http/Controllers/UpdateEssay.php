@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 class UpdateEssay extends Controller
 {
     //
-    public function getdata(User $user){
-        $essays = Essay::find($user->id);
+    public function getdata(User $user, Essay $essay){
+        $essays = Essay::find($essay->id);
+        
         return view('user.update_essay', [
             'essays' => $essays
         ]);

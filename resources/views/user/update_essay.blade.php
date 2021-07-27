@@ -14,7 +14,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12 mb-3">
                                     <label for=""><b>Essay</b></label>
-                                    <textarea name="essay" class="form-control" value="{{$essays->essay}}" placeholder="How can the Kaduna state government improve in the provision of job oppourtunities"  cols="30" rows="10" ></textarea>
+                                    <textarea name="essay" class="form-control"  placeholder="How can the Kaduna state government improve in the provision of job oppourtunities"  cols="30" rows="10" >{{$essays->essay}}</textarea>
                                 </div>
                                
                             </div>
