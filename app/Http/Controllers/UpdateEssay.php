@@ -9,8 +9,11 @@ use Illuminate\Http\Request;
 class UpdateEssay extends Controller
 {
     //
-    public function getdata(){    
-        return view('user.update_essay');
+    public function getdata(User $user){
+        $user = User::find($user->id);    
+        return view('user.update_essay', [
+            'user' => $user
+        ]);
     }
 
     public function update(Request $request, User $user){
@@ -19,6 +22,9 @@ class UpdateEssay extends Controller
             'essay' => 'required'
        ]);
 
+       $user = User::find($user->id);
+       $user->essay = $request->essay;
+       $user->save();
        
       
 

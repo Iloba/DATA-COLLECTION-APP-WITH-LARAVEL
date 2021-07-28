@@ -60,8 +60,5 @@ class User extends Authenticatable
         return $this->hasMany(Document::class);
     }
 
-    public function essay(){
-        return $this->hasOne(Essay::class);
-    }
-    
+   
 }
