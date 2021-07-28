@@ -10,7 +10,7 @@
             </div>
         </section>
         <section class="mt-5 mb-5">
-            <div class="container p-5">
+            <div class="container p-5" id="first-div">
                <div class="row">
                 <div class="col-md-6 mb-3">
                     <img src="{{asset('img/woman.webp')}}" alt="">
@@ -26,7 +26,7 @@
             </div>
         </section>
         <section class="p-5 third-section">
-            <div class="container p-4">
+            <div class="container p-4" id="second-div">
                 <h2 class="text-center">The four (4) main programs under the Empowerment Investment Program</h2>
                 <div class="row">
                     <div class="col-md-12">
@@ -76,7 +76,7 @@
         </section>
         <section class="p-5">
             <h1 class="text-center p-3">Steps to follow</h1>
-            <div class="container p-5">
+            <div class="container p-5" id="third-div">
                 
                 <div class="row">
                     <div class="col-md-4 mb-3">

@@ -10058,4 +10058,40 @@ div a:hover{
      display: none;
 
   }
+  #first-div{
+    display: block;
+    margin: auto;
+    text-align: center;
+    
+  }
+  #first-div img{
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+  #second-div{
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+  #third-div{
+    width: 100%;
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+ 
+}
+
+@media(max-width: 500px){
+  .card{
+    width:100%;
+  }
+  .row .col-md-4{
+    padding: 0;
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
 }
