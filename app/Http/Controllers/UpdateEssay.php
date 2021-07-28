@@ -9,12 +9,8 @@ use Illuminate\Http\Request;
 class UpdateEssay extends Controller
 {
     //
-    public function getdata(User $user, Essay $essay){
-        $essays = Essay::find($essay->id);
-        
-        return view('user.update_essay', [
-            'essays' => $essays
-        ]);
+    public function getdata(){    
+        return view('user.update_essay');
     }
 
     public function update(Request $request, User $user){
@@ -23,9 +19,8 @@ class UpdateEssay extends Controller
             'essay' => 'required'
        ]);
 
-       $essay = Essay::find($user->id);
-       $essay->essay = $request->essay;
-       $essay->save();
+       
+      
 
        //redirect
        return redirect()->back()->with('success', 'Essay Updated Successfully');

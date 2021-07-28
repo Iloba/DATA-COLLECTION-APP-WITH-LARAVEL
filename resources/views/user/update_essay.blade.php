@@ -14,9 +14,15 @@
                             <div class="row mb-3">
                                 <div class="col-md-12 mb-3">
                                     <label for=""><b>Essay</b></label>
-                                    <textarea name="essay" class="form-control"  placeholder="How can the Kaduna state government improve in the provision of job oppourtunities"  cols="30" rows="10" >{{$essays->essay}}</textarea>
+                                    <textarea name="essay" class="form-control"  placeholder=" How can the Kaduna state government improve in the provision of job oppourtunities"  cols="30" rows="10" ></textarea>
                                 </div>
-                               
+                                <div class="essay-box p-3">
+                                    @if ($essay)
+                                        {{$essay->essay}}
+                                        @else
+                                        <p>You have not started writing any essay yet</p>
+                                    @endif
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-success mb-3">
                                 Save and Continue

@@ -85,7 +85,7 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
     Route::delete('/updateDocuments/{id}/delete', [UpdateDocuments::class, 'delete'])->name('delete_document');
 
     //Edit Essay
-    Route::get('/updateEssay/{user:id}', [UpdateEssay::class, 'getdata'])->name('update_essay');
+    Route::get('/updateEssay/{user:username}', [UpdateEssay::class, 'getdata'])->name('update_essay');
 
     //Edit Essay
     Route::post('/updateEssay/{user:id}', [UpdateEssay::class, 'update'])->name('save_essay');
