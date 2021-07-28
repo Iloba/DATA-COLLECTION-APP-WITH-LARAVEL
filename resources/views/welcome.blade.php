@@ -74,7 +74,7 @@
                 </div>
             </div>
         </section>
-        <section class="p-5">
+        <section class="p-5" id="card-section">
             <h1 class="text-center p-3">Steps to follow</h1>
             <div class="container p-5" id="third-div">
                 
