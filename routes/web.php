@@ -10,6 +10,7 @@ use App\Http\Controllers\UpdateEducation;
 use App\Http\Controllers\UpdateExperience;
 use App\Http\Controllers\EmailVerification;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PreviewDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,7 @@ Route::any('/verifymail/{user:id}', [EmailVerification::class, 'verifyEmail'])->
 //Login Users
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
+Route::group(['prefix' => 'dashboard', 'middleware' => 'access'], function(){
     //Edit Biodata
     Route::get('/updateBiodata/{user:username}', [UpdateBiodata::class, 'getdata'])->name('update_biodata');
 
@@ -89,4 +90,10 @@ Route::group(['prefix' => 'dasboard', 'middleware' => 'access'], function(){
 
     //Edit Essay
     Route::post('/updateEssay/{user:id}', [UpdateEssay::class, 'update'])->name('save_essay');
+
+    //Preview Data
+    Route::get('/previewData/{user:username}', [PreviewDataController::class, 'preview'])->name('preview_data');
+
+    //Submit form
+    Route::post('/submit/{user:username}', [PreviewDataController::class, 'submit'])->name('submit_form');
 });

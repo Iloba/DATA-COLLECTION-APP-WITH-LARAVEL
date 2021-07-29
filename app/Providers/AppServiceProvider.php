@@ -36,8 +36,8 @@ class AppServiceProvider extends ServiceProvider
 
         //pass UserComposer to class
         View::composer('master.sidebar', Usercomposer::class );
-        View::composer('user.update_education', EducationComposer::class );
-        View::composer('user.update_experience', ExperienceComposer::class);
-        View::composer('user.update_document', DocumentComposer::class);
+        View::composer(['user.update_education', 'user.preview_data'], EducationComposer::class );
+        View::composer(['user.update_experience', 'user.preview_data'], ExperienceComposer::class);
+        View::composer(['user.update_document', 'user.preview_data'], DocumentComposer::class);
     }
 }
