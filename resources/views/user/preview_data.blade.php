@@ -8,7 +8,7 @@
                         @include('master.errors')
                         <h3 class="mb-4">Preview Application</h3>
                         <h3 class="text-success mb-3"><b>Bio Data</b></h3>
-                        <div class="row mb-4">
+                        <div class="row mb-5">
                             <div class="col-md-2">
                                 <img class="img-fluid shadow" src="{{asset('storage/passport_photographs/'.$user->passport)}}" alt="">
                             </div>
@@ -38,7 +38,7 @@
                                 <h3 class="text-success mb-3"><b>Educational Background</b></h3>
                                 @if ($education->count() > 0)
                               
-                                <div class="row mb-4 mt-3">
+                                <div class="row mb-2 mt-3">
                                     
                                     @foreach ($education as $school)
                                         <div class="col-md-12 mb-3">
@@ -121,23 +121,34 @@
                             <p>You have not uploaded any documents yet Please Do</p>   
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-5">
                             <h3 class="text-success"><b>Essay</b></h3>
                             <p class="">{{$user->essay}}</p>
                         </div>
-                        <div>
-                            <a href="{{route('submit_form', $user)}}" class="btn btn-success btn-lg" onclick="
-                                event.preventDefault();
-                                if(confirm('Are you sure you want to submit?? you will not be able to Edit Details Again')){
-                                    document.getElementById('{{'submit'.$user->id}}').submit();
-                                }
-                            ">
-                                Submit Form
-                            </a>
-                            <form action="{{route('submit_form', $user)}}" method="POST" id="{{'submit'.$user->id}}">
+                      
+                        
+                        @if ($documents->count() > 0)
+                        <span class="mx-auto mb-1 text-danger"><b>Please click the check box below to confirm submission</b></span>
+                            <form class="mb-3" action="{{route('submit_form', $user)}}" method="POST" id="{{'submit'.$user->id}}">
+                                <input type="checkbox" name="confirm_submission" class="form-control" value="Please Click this box to confirm">
                                 @csrf
                             </form>
-                        </div>
+                            <div class="mx-auto">
+                                <a href="{{route('submit_form', $user)}}" class="btn btn-success btn-lg" onclick="
+                                    event.preventDefault();
+                                    if(confirm('Are you sure you want to submit?? you will not be able to Edit Details Again')){
+                                        document.getElementById('{{'submit'.$user->id}}').submit();
+                                    }
+                                ">
+                                    Submit Form
+                                </a>
+                                
+                            </div> 
+                        @else
+                            <p class="text-danger text-center">Please Upload some Documents to be able to submit</p>
+                    
+                        @endif
+                        
                             
                     </div>
                  
