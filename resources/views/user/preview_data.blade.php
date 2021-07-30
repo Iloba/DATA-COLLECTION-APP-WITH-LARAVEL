@@ -57,13 +57,14 @@
                                 </div>
                               
                                 @else
-                                <p>You have not added any Educational history</p>
+                                <p class="text-danger">You have not added any Educational history</p>
                                 @endif
                             </div>
                             <div class="col-md-6">
                                 <h3 class="text-success"><b>Working Experience</b></h3>
                                 <div class="row mb-2 mt-3">
-                                    @foreach ($experiences as $experience)
+                                    @if ($experiences->count() > 0)
+                                        @foreach ($experiences as $experience)
                                         <div class="col-md-12 mb-2">
                                             <div class="card p-2 shadow-sm">
                                                     <b class="text-success">{{$experience->position}}</b>
@@ -71,21 +72,24 @@
                                                     {{$experience->end_date}}  
                                             </div>    
                                         </div>
-                                      
-                                    @endforeach
-                                   <div class="p-3">
-                                    {{$experiences->links()}}
-                                   </div>
+                                  
+                                         @endforeach
+                                        <div class="p-3">
+                                            {{$experiences->links()}}
+                                        </div>
+                                    @else
+                                    <p class="ml-4 text-danger">You have not added any Experiences</p>
+                                    @endif
                                 </div>
                             </div>
                         
                         </div>
                         <div class="row pl-3">
-                            <h3 class="text-success "><b>Uploaded Documents</b></h3>
+                            <h3 class="text-success"><b>Uploaded Documents</b></h3>
                             @if ($documents->count() > 0)
                             
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered ">
                                         <thead>
                                                 <tr>
                                                    
@@ -113,17 +117,23 @@
                                                     </tr>
                                                @endforeach 
                                         </tbody>
-                                    </table>
+                                    </table> 
                                     {{$documents->links()}}
                                 </div>
                            
                             @else
-                            <p>You have not uploaded any documents yet Please Do</p>   
+                         
+                            <p class="mt-3 text-danger">You have not uploaded any documents  Please Do Upload some</p>   
                             @endif
                         </div>
                         <div class="mb-5">
                             <h3 class="text-success"><b>Essay</b></h3>
+                            @if (is_null($user->essay))
+                                <p class="text-danger">Please Fill out the essay section</p>
+                            @else
                             <p class="">{{$user->essay}}</p>
+                            @endif
+                            
                         </div>
                       
                         
@@ -145,11 +155,11 @@
                                 
                             </div> 
                         @else
-                            <p class="text-danger text-center">Please Upload some Documents to be able to submit</p>
+                            <p class="text-danger text-center">Please Update Data to be able to submit</p>
                     
                         @endif
                         
-                            
+                                
                     </div>
                  
                 </div>

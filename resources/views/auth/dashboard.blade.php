@@ -74,7 +74,7 @@
                                 </a>
                             </div>
                             <div class="col-md-4 mb-3">  
-                                <a href="">
+                                <a href="{{route('preview_data', session('user'))}}">
                                     <div class="card shadow p-5">
                                         <h2 class="text-center"><i class=" p-3 shadow  icofont icofont-eye btn btn-light rounded-circle"></i></h2>
                                       <h4 class="text-center">Preview Application</h4>
