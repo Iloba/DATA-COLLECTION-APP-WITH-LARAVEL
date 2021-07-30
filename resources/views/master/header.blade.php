@@ -29,6 +29,12 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a>
+                        <a class="dropdown-item" href="{{route('update_biodata', session('user'))}}">Update Bio Data</a>
+                        <a class="dropdown-item" href="{{route('update_education', session('user'))}}">Update Education</a>
+                        <a class="dropdown-item" href="{{route('update_experience', session('user'))}}">Update Work Experience</a>
+                        <a class="dropdown-item" href="{{route('update_document', session('user'))}}">Upload Documents</a>
+                        <a class="dropdown-item" href="{{route('update_essay', session('user'))}}">Update Essay</a>
+                        <a class="dropdown-item" href="{{route('preview_data', session('user'))}}">Preview Application</a>
                         <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
                         event.preventDefault();
 
@@ -39,8 +45,10 @@
                             @csrf
                           </form>
                         </a>
+                       
                       </div>
                   </li>
+
 
                 @else
                 <a class="nav-item btn btn-danger nav-link m-2 text-light" href="{{route('register_page')}}">Signup</a>

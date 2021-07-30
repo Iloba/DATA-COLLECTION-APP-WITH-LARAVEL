@@ -10,7 +10,7 @@
                         <h3 class="text-success mb-3"><b>Bio Data</b></h3>
                         <div class="row mb-5">
                             <div class="col-md-2">
-                                <img class="img-fluid shadow" src="{{asset('storage/passport_photographs/'.$user->passport)}}" alt="">
+                                <img class="img-fluid shadow" id="img" src="{{asset('storage/passport_photographs/'.$user->passport)}}" alt="">
                             </div>
                             <div class="col-md-2 mb-3">
                                 <p><b>Username</b>: {{$user->username}}</p>
@@ -84,7 +84,7 @@
                             </div>
                         
                         </div>
-                        <div class="row pl-3">
+                        <div class="">
                             <h3 class="text-success"><b>Uploaded Documents</b></h3>
                             @if ($documents->count() > 0)
                             

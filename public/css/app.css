@@ -10093,4 +10093,12 @@ div a:hover{
   .p-5{
     padding: 1rem !important;
   }
+  #img{
+    width: 120px;
+    display: block;
+    margin: auto;
+  }
+  .row{
+    text-align: center;
+  }
 }
