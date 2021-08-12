@@ -39,7 +39,7 @@
                                     <label for="email"><b>Gender</b></label>
                                    <select name="gender" class="form-control" id="">
                                        <option value="Male">Male</option>
-                                       <option value="Feale">Female</option>
+                                       <option value="Female">Female</option>
                                    </select>
                                 </div>
                             </div>

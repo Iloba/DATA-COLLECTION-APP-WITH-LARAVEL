@@ -49,8 +49,8 @@ class PreviewDataController extends Controller
         return $this->CheckIfUserUpdatedData($user);
 
         //submit form
-    
-
+       
+       
         //generate pdf and send to user email
       
 
@@ -68,7 +68,7 @@ class PreviewDataController extends Controller
          {
             return redirect()->back()->with('error', 'Please Update your Data before submitting');
         }
-        
+
     }
 
     protected function CheckIfUserVerifiedEmail(User $user){
