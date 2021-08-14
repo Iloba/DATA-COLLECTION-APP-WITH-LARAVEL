@@ -42,38 +42,32 @@ class PreviewDataController extends Controller
 
         //Check if email is verified
         $user = User::find($user->id);
-        return $this->CheckIfUserVerifiedEmail($user);
 
 
-        //Check if user updated data
-        return $this->CheckIfUserUpdatedData($user);
+        if(!$user->email_verified == true){
+            return redirect()->back()->with('error', 'Please Verify your Email before submitting');
+        }
+
+
+
+       //generate pdf and send to user email
+
+
 
         //submit form
+       $user->submitted = true;
+
+       $user->save();
+
+       return redirect()->route('form-submitted')->with('success', 'Congratulations, your Form submitted successfully, Please check your email for confirmation');
        
-       
-        //generate pdf and send to user email
+        
       
 
     }
    
-    protected function CheckIfUserUpdatedData(User $user){
-        if($user->passport == null ||
-         $user->gender == null ||
-         $user->dob == null || 
-         $user->marital_status == null ||
-         $user->state == null || 
-         $user->country == null || 
-         $user->address == null || 
-         $user->essay == null )
-         {
-            return redirect()->back()->with('error', 'Please Update your Data before submitting');
-        }
+    
+    
 
-    }
-
-    protected function CheckIfUserVerifiedEmail(User $user){
-        if($user->email_verified == False){
-            return redirect()->back()->with('error', 'Please Verify your Email before submitting');
-        }
-    }
+   
 }
