@@ -20,42 +20,30 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            @if(session()->has('user'))
-
-              @if (session('user')->submitted)
-              <div class="navbar-nav ml-auto">
-                 @if (session()->has('user'))
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          {{session('user')->username}}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
-                          event.preventDefault();
-  
-                          document.getElementById('logout-form').submit();
-                          
-                          ">Logout
-                            <form action="{{route('logout_user')}}" method="POST" class="d-none" id="logout-form" >
-                              @csrf
-                            </form>
-                          </a>
-                        
-                        </div>
-                    </li>
-                  @else
-                  <a class="nav-item btn btn-danger nav-link m-2 text-light" href="{{route('register_page')}}">Signup</a>
-                  <a class="nav-item btn btn-success nav-link m-2 text-light" href="{{route('login_page')}}">Login</a>
-                @endif
-                
-                  
-            </div>
-          
-              @else
               <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
                   @if (session()->has('user'))
+                    @if (session('user')->submitted)
                       <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{session('user')->username}}
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
+                            event.preventDefault();
+
+                            document.getElementById('logout-form').submit();
+                            
+                            ">Logout
+                              <form action="{{route('logout_user')}}" method="POST" class="d-none" id="logout-form" >
+                                @csrf
+                              </form>
+                            </a>
+                        
+                        </div>
+                      </li>
+                      @else
+                     <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{session('user')->username}}
                           </a>
@@ -80,18 +68,17 @@
                           
                           </div>
                       </li>
-    
-    
+                   @endif
                     @else
-                    <a class="nav-item btn btn-danger nav-link m-2 text-light" href="{{route('register_page')}}">Signup</a>
-                    <a class="nav-item btn btn-success nav-link m-2 text-light" href="{{route('login_page')}}">Login</a>
-                  @endif
+                      <a class="nav-item btn btn-danger nav-link m-2 text-light" href="{{route('register_page')}}">Signup</a>
+                      <a class="nav-item btn btn-success nav-link m-2 text-light" href="{{route('login_page')}}">Login</a>
+                @endif
                   
                     
                 </div>
               </div>
-              @endif
-           @endif   
+            
+           
         </div>
       </nav>
 </body>

@@ -12,10 +12,6 @@
                 <div class="row" id="main-dashboard">
                     @include('master.sidebar')
                     <div class="col-md-9 p-3">
-
-                    
-                            
-                        
                     @if (session('user')->email_verified)
                     <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
                             Account Verified 
