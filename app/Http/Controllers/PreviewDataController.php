@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Rules\ConfirmSubmission;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class PreviewDataController extends Controller
@@ -44,9 +45,9 @@ class PreviewDataController extends Controller
         $user = User::find($user->id);
 
        //Check if email is verified
-        if(!$user->email_verified == true){
-            return redirect()->back()->with('error', 'Please Verify your Email before submitting');
-        }
+        // if(!$user->email_verified == true){
+        //     return redirect()->back()->with('error', 'Please Verify your Email before submitting');
+        // }
 
 
 
@@ -58,6 +59,10 @@ class PreviewDataController extends Controller
        $user->submitted = true;
 
        $user->save();
+
+
+       //Destroy session........(Logout user)
+       Session::forget('user');
 
 
        //redirect to submission page

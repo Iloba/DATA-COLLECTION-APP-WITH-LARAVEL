@@ -20,28 +20,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            @if (session('user')->submitted)
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{session('user')->username}}
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
-                  event.preventDefault();
+            @if(session()->has('user'))
 
-                  document.getElementById('logout-form').submit();
-                  
-                  ">Logout
-                    <form action="{{route('logout_user')}}" method="POST" class="d-none" id="logout-form" >
-                      @csrf
-                    </form>
-                  </a>
-               
-              </div>
-          </li>
-         
-            @else
-            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+              @if (session('user')->submitted)
               <div class="navbar-nav ml-auto">
                  @if (session()->has('user'))
                     <li class="nav-item dropdown">
@@ -49,13 +30,6 @@
                           {{session('user')->username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a>
-                          <a class="dropdown-item" href="{{route('update_biodata', session('user'))}}">Update Bio Data</a>
-                          <a class="dropdown-item" href="{{route('update_education', session('user'))}}">Update Education</a>
-                          <a class="dropdown-item" href="{{route('update_experience', session('user'))}}">Update Work Experience</a>
-                          <a class="dropdown-item" href="{{route('update_document', session('user'))}}">Upload Documents</a>
-                          <a class="dropdown-item" href="{{route('update_essay', session('user'))}}">Update Essay</a>
-                          <a class="dropdown-item" href="{{route('preview_data', session('user'))}}">Preview Application</a>
                           <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
                           event.preventDefault();
   
@@ -66,21 +40,58 @@
                               @csrf
                             </form>
                           </a>
-                         
+                        
                         </div>
                     </li>
-  
-  
                   @else
                   <a class="nav-item btn btn-danger nav-link m-2 text-light" href="{{route('register_page')}}">Signup</a>
                   <a class="nav-item btn btn-success nav-link m-2 text-light" href="{{route('login_page')}}">Login</a>
-                 @endif
-                 
-                   
+                @endif
+                
+                  
+            </div>
+          
+              @else
+              <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                  @if (session()->has('user'))
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{session('user')->username}}
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a>
+                            <a class="dropdown-item" href="{{route('update_biodata', session('user'))}}">Update Bio Data</a>
+                            <a class="dropdown-item" href="{{route('update_education', session('user'))}}">Update Education</a>
+                            <a class="dropdown-item" href="{{route('update_experience', session('user'))}}">Update Work Experience</a>
+                            <a class="dropdown-item" href="{{route('update_document', session('user'))}}">Upload Documents</a>
+                            <a class="dropdown-item" href="{{route('update_essay', session('user'))}}">Update Essay</a>
+                            <a class="dropdown-item" href="{{route('preview_data', session('user'))}}">Preview Application</a>
+                            <a class="dropdown-item" href="{{route('logout_user')}}" onclick="
+                            event.preventDefault();
+    
+                            document.getElementById('logout-form').submit();
+                            
+                            ">Logout
+                              <form action="{{route('logout_user')}}" method="POST" class="d-none" id="logout-form" >
+                                @csrf
+                              </form>
+                            </a>
+                          
+                          </div>
+                      </li>
+    
+    
+                    @else
+                    <a class="nav-item btn btn-danger nav-link m-2 text-light" href="{{route('register_page')}}">Signup</a>
+                    <a class="nav-item btn btn-success nav-link m-2 text-light" href="{{route('login_page')}}">Login</a>
+                  @endif
+                  
+                    
+                </div>
               </div>
-              </div>
-            @endif
-            
+              @endif
+           @endif   
         </div>
       </nav>
 </body>

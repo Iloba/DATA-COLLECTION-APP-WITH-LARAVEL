@@ -15,7 +15,8 @@
                         <input type="text" name="phone" class="form-control mb-3" placeholder="Phone Number"  value="{{Old('phone')}}">
                         <input type="password" name="password" class="form-control mb-3" placeholder="Password">
                         <input type="password" name="password_confirmation" class="form-control mb-3" placeholder="Confirm Password">
-                        <button class="btn btn-success" type="submit">Register</button>
+                        <button class="btn btn-success mb-3" type="submit">Register</button> <br>
+                        <a class="text-success" href="{{route('login')}}">Already have an Account, Login Here</a>
                     </form>
                 </div>
             </div>

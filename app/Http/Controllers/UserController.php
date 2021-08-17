@@ -49,6 +49,7 @@ class UserController extends Controller
         $user->username = str_replace(' ', '', $request->username);
         $user->reg_number = $reg_no;
         $user->email_verified = False; //Email has not been verified
+        $user->submitted = False;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);

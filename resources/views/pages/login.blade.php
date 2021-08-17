@@ -10,7 +10,8 @@
                         @csrf
                         <input type="text" name="email" class="form-control mb-3" placeholder="Email Address / Registration Number" value="{{Old('email')}}">
                         <input type="password" name="password" class="form-control mb-3" placeholder="Enter Password">
-                        <button class="btn btn-success" type="submit">Login</button>
+                        <button class="btn btn-success mb-3" type="submit">Login</button> <br>
+                        <a class="text-success" href="{{route('register')}}">Create an Account</a>
                     </form>
                 </div>
             </div>
