@@ -3,7 +3,10 @@
     @include('master.errors')
     <div class="dashboard">
         @if (session('user')->submitted)
-            <p>You have submitted your form</p>
+            <div class="alert alert-danger mx-auto">
+                <p class="text-center"><i style="font-size: 150px;" class="icofont icofont-mail"></i></p> <br>
+               <p class="text-center"> Thank you, you have successfully submitted your form</p>
+            </div>
         @else
             <div class="container-fluid">
                 <div class="row" id="main-dashboard">
