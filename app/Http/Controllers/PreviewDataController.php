@@ -40,10 +40,10 @@ class PreviewDataController extends Controller
        };
 
 
-        //Check if email is verified
+        
         $user = User::find($user->id);
 
-
+       //Check if email is verified
         if(!$user->email_verified == true){
             return redirect()->back()->with('error', 'Please Verify your Email before submitting');
         }
@@ -59,6 +59,8 @@ class PreviewDataController extends Controller
 
        $user->save();
 
+
+       //redirect to submission page
        return redirect()->route('form-submitted')->with('success', 'Congratulations, your Form submitted successfully, Please check your email for confirmation');
        
         
