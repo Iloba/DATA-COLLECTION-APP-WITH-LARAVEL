@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Http\View\Composers\pdfComposer;
 use App\Http\View\Composers\Usercomposer;
 use App\Http\View\Composers\EssayComposer;
 use App\Http\View\Composers\DocumentComposer;
@@ -39,5 +40,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['user.update_education', 'user.preview_data'], EducationComposer::class );
         View::composer(['user.update_experience', 'user.preview_data'], ExperienceComposer::class);
         View::composer(['user.update_document', 'user.preview_data'], DocumentComposer::class);
+        View::composer('user.pdf-page', pdfComposer::class);
     }
 }

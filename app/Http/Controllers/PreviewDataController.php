@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use PDF;
 use Illuminate\Http\Request;
 use App\Rules\ConfirmSubmission;
 use Illuminate\Support\Facades\Session;
@@ -52,7 +53,9 @@ class PreviewDataController extends Controller
 
 
        //generate pdf and send to user email
+        $pdf = PDF::loadView('user.pdf-page');
 
+         $pdf->download('user-pdf');
 
 
         //submit form
@@ -73,6 +76,12 @@ class PreviewDataController extends Controller
 
     }
    
+      //generate pdf and download
+    public function downloadPDF(){
+         $pdf = PDF::loadView('user.pdf-page');
+
+         $pdf->download('user-pdf');
+    }
     
     
 

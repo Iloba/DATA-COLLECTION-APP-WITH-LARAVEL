@@ -45,6 +45,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout_user');
 //verify mail route
 Route::view('/verifymail', 'pages.verify_email')->name('email-verification');
 Route::view('/submitted', 'pages.submitted')->name('form-submitted');
+Route::view('/user-pdf', 'user.pdf-page')->name('pdf-page');
+Route::post('/download', [PreviewDataController::class, 'downloadPDF'])->name('download-pdf');
 
 //Verify EMail
 Route::any('/verifymail/{user:id}', [EmailVerification::class, 'verifyEmail'])->name('verify_email');
