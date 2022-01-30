@@ -16,6 +16,7 @@ class EmailVerification extends Controller
         if(User::where('reg_number', $user->reg_number)->exists()){
             //set value of verified field to true
             $user->email_verified = true;
+            
             //save
             $user->save();
 

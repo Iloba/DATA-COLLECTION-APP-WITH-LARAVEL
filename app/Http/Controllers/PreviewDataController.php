@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use PDF;
+use Exception;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Rules\ConfirmSubmission;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\SubmissionNotification;
 
 class PreviewDataController extends Controller
 {
@@ -53,9 +56,22 @@ class PreviewDataController extends Controller
 
 
        //generate pdf and send to user email
-        $pdf = PDF::loadView('user.pdf-page');
+        // $pdf = PDF::loadView('user.pdf-page');
 
-         $pdf->download('user-pdf');
+        //  $pdf->download('user-pdf');
+
+         //Try and catch syntaxxx to send error (Never forget)
+         try {
+            //Send Verification mail after registration
+           Mail::to($user->email)->send(new SubmissionNotification($user->username));
+
+           //redirect user to email verification page 
+           return redirect()->route('email-verification')->with('success', 'Congratulations you just submitted your form');
+
+       } catch (Exception $error){
+           return back()->with('error', 'Registration complete but Something went wrong; Could not send verification mail');
+       }
+      
 
 
         //submit form
@@ -77,11 +93,14 @@ class PreviewDataController extends Controller
     }
    
       //generate pdf and download
-    public function downloadPDF(){
-         $pdf = PDF::loadView('user.pdf-page');
+    // public function downloadPDF(){
+    //      $pdf = PDF::loadView('user.pdf-page');
 
-         $pdf->download('user-pdf');
-    }
+    //      $pdf->download('user-pdf');
+    // }
+
+
+    
     
     
 
