@@ -6,12 +6,12 @@
             <div class="alert alert-danger mx-auto">
                 <p class="text-center"><i style="font-size: 150px;" class="icofont icofont-mail"></i></p> <br>
                <p class="text-center"> Thank you, you have successfully submitted your form</p>
-               <div class="mt-3 mb-3">
+               {{-- <div class="mt-3 mb-3">
                     <form action="{{route('download-pdf')}}" method="POST">
                         @csrf
                         <button class="btn btn-success mx-auto d-block">Download confirmation PDF</button>
                     </form>
-               </div>
+               </div> --}}
             </div>
         @else
             <div class="container-fluid">
